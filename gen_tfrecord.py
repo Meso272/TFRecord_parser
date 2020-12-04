@@ -11,7 +11,7 @@ else:
     dtype=np.float32
 
 def save_tfrecords(source,dest,dtype):
-    data=np.fromfile(source,dtype=dtype).reshape((z,256,256))
+    data=np.fromfile(source,dtype=dtype).reshape((-1,256,256))
     with tf.compat.v1.python_io.TFRecordWriter(dest) as writer:
         znum=z//128
         for k in range(znum):

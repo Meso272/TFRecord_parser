@@ -13,10 +13,10 @@ def _parse_32(example_proto):
 
 def load_tfrecords_64(srcfile):
 #srcfile: input tfrecord file
-    sess=tf.Session()
     dataset=tf.data.TFRecordDataset(srcfile)
     dataset=dataset.map(_parse_64)
+    return dataset
 def load_tfrecords_32(srcfile):
-    sess=tf.Session()
     dataset=tf.data.TFRecordDataset(srcfile)
     dataset=dataset.map(_parse_32)
+    return dataset
